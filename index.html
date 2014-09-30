@@ -5,21 +5,21 @@
     <link rel="stylesheet" type="text/css" href="pure-min.css" />
     <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
     <script src="script/jquery.js"></script>
-    <title>PropTools</title>
+    <title>prawp</title>
 </head>
 
 <body>
-    <h1 id="title">PropTools</h1>
+    <h1 id="title">prawp</h1>
     <p id="navbar">
-        <a href="index.html" data-transition="slide">Home</a> - 
-        <a href="smite.html">Smite Random God</a>
+        <span class="link" id="homel">Home</span> - 
+        <span class="link" id="srgl">Smite Random God</span>
     </p>
     <div id="main">
-        <div id="home">
+        <div id="home" class="page">
             <h2>Welcome</h2>
             <p align='center'>This is where I upload all my crap. Fancy, am I correct men who kill families?</p>
         </div>
-        <div id="srg" align='center'>
+        <div id="srg" class="page" align='center'>
             <h2>Random Smite God Picker</h2>
             <h3 align='center' id='chosengod'>God Name</h3>
             <button id='randomizegod' class="pure-button">Randomize God</button>
@@ -29,35 +29,31 @@
     
     
     <script>
-        var currentpage = "#home";
-        
-            //hide all
-            $("#srg").hide();
-            //navbar
-            $("#srglink").click(function(){
-                if($(this).hasClass("current") == false){
-                    $(currentpage).slideUp();
-                    $("#srg").slideDown();
-                    currentpage = "#srg";
-                    $(".current").toggleClass("current");
-                    $(this).toggleClass("current");
-                }
-            });
-            $("#homelink").click(function(){
-                if($(this).hasClass("current") == false){
-                    $(currentpage).slideUp();
+        var currentpage = "homel";
+        //hide all
+        $(".page").hide();
+        $("#home").show();
+        //navbar
+        $(".link").click(function(){
+            var link = $(this).attr("id");
+            if(link != currentpage){
+                if(link == "homel"){
+                    $(".page").slideUp(1000);
                     $("#home").slideDown();
-                    currentpage = "#home";
-                    $(".current").toggleClass("current");
-                    $(this).toggleClass("current");
+                    currentpage = link;
+                } else if(link == "srgl"){
+                    $(".page").slideUp(1000);
+                    $("#srg").slideDown();
+                    currentpage = link;
                 }
-            });
-            //Smite God randomizer
-            $('#randomizegod').click(function(){
-                var gods = ['Agni', 'Ah Muzen Cab', 'Anhur', 'Anubis', 'Aphrodite', 'Apollo', 'Arachne', 'Ares', 'Artemis', 'Athena', 'Bacchus', 'Bakasura', 'Bastet', 'Cabrakan', 'Chaac', "Chang'e", 'Chronos', 'Cupid', 'Fenrir', 'Freya', 'Geb', 'Guan Yu', 'Hades', 'He Bo', 'Hel', 'Hercules', 'Hun Batz', 'Isis', 'Janus', 'Kali', 'Kukulkan', 'Kumbhakarna', 'Loki', 'Mercury', 'Ne Zha', 'Neith', 'Nemesis', 'Nu Wa', 'Odin', 'Osiris', 'Poseidon', 'Ra', 'Rama', 'Scylla', 'Serqet', 'Sobek', 'Sun Wukong', 'Thanatos', 'Thor', 'Tyr', 'Ullr', 'Vamana', 'Vulcan', 'Xbalanque', 'Ymir', 'Zeus', 'Zhong Kui'];
-                var randgods = gods[Math.floor(Math.random() * gods.length)];
-                
-                $('#chosengod').text(randgods)();
-            });
+            }
+
+        });
+        //Smite God randomizer
+        $('#randomizegod').click(function(){
+            var gods = ['Agni', 'Ah Muzen Cab', 'Anhur', 'Anubis', 'Aphrodite', 'Apollo', 'Arachne', 'Ares', 'Artemis', 'Athena', 'Bacchus', 'Bakasura', 'Bastet', 'Cabrakan', 'Chaac', "Chang'e", 'Chronos', 'Cupid', 'Fenrir', 'Freya', 'Geb', 'Guan Yu', 'Hades', 'He Bo', 'Hel', 'Hercules', 'Hun Batz', 'Isis', 'Janus', 'Kali', 'Kukulkan', 'Kumbhakarna', 'Loki', 'Mercury', 'Ne Zha', 'Neith', 'Nemesis', 'Nu Wa', 'Odin', 'Osiris', 'Poseidon', 'Ra', 'Rama', 'Scylla', 'Serqet', 'Sobek', 'Sun Wukong', 'Thanatos', 'Thor', 'Tyr', 'Ullr', 'Vamana', 'Vulcan', 'Xbalanque', 'Ymir', 'Zeus', 'Zhong Kui'];
+            var randgods = gods[Math.floor(Math.random() * gods.length)];
+            $('#chosengod').text(randgods)();
+        });
     </script>
 </body>
