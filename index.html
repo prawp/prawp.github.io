@@ -12,9 +12,12 @@
     <p class="music" id="stopmusic">stop music</p>
     <h1 id="alert">aaaaa</h1>
     <h1 id="title">prawp</h1>
-    <p id="navbar">
-        <span class="link" id="homel">Home</span> - 
-        <span class="link" id="srgl">Smite Random God</span> -
+    <p align="center" id="shownav">
+        &#9776; Menu
+    </p>
+    <p id="navbar" align='center'>
+        <span class="link" id="homel">Home</span><br>
+        <span class="link" id="srgl">Smite Random God</span><br>
         <span class="link" id="changelogl">Changelog</span>
     </p>
     <div id="main">
@@ -45,10 +48,12 @@
         var song = document.createElement("audio");
         var currentpage = "homel";
         //hide all
+        $("#navbar").hide();
         $(".page").hide();
         $("#home").show();
         //navbar
         $(".link").click(function(){
+            $("#navbar").slideUp().removeClass("out");
             var link = $(this).attr("id");
             if(link != currentpage){
                 if(link == "homel"){
@@ -64,6 +69,14 @@
                     $("#changelog").slideDown();
                     currentpage = link;
                 }
+            }
+        });
+        //Showmenu
+        $("#shownav").click(function(){
+            if($("#navbar").hasClass("out")){
+                $("#navbar").slideUp().toggleClass("out");
+            } else {
+                $("#navbar").slideDown().toggleClass("out");
             }
         });
         //Alert
@@ -87,6 +100,13 @@
             var randgods = gods[Math.floor(Math.random() * gods.length)];
             $('#chosengod').text(randgods)();
         });
+        //tooltip
+        var tooltipSpan = document.getElementById("navbar");
+        window.onmousemove = function(e) {
+            var x = e.clientX, y = e.clientY;
+            tooltipSpan.style.top = (y + 20) + 'px';
+            tooltipSpan.style.left = (x + 20) + 'px'
+        }
     }
     $(document).ready(main);
     </script>
