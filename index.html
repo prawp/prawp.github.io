@@ -14,7 +14,8 @@
     <h1 id="title">prawp</h1>
     <p id="navbar">
         <span class="link" id="homel">Home</span> - 
-        <span class="link" id="srgl">Smite Random God</span>
+        <span class="link" id="srgl">Smite Random God</span> -
+        <span class="link" id="changelogl">Changelog</span>
     </p>
     <div id="main">
         <div id="home" class="page">
@@ -25,6 +26,17 @@
             <h2>Random Smite God Picker</h2>
             <h3 align='center' id='chosengod'>God Name</h3>
             <button id='randomizegod' class="pure-button">Randomize God</button>
+        </div>
+        <div id="changelog" class="page">
+            <h2>Changelog</h2>
+            <hr>
+                <ul>
+                    <li>Added changelog page</li>
+                    <li>Added music at bottom left</li>
+                    <li>Added alert system at top of page</li>
+                    <li>Added Sylvanus to Smite random gods</li>
+                </ul>
+            <hr>
         </div>
     </div>
     
@@ -46,6 +58,10 @@
                 } else if(link == "srgl"){
                     $(".page").slideUp(1000);
                     $("#srg").slideDown();
+                    currentpage = link;
+                } else if(link == "changelogl"){
+                    $(".page").slideUp(1000);
+                    $("#changelog").slideDown();
                     currentpage = link;
                 }
             }

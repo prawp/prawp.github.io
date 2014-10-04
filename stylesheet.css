@@ -73,3 +73,6 @@ input{
 .current:hover{
     cursor: default;
 }
+hr{
+    border-color: black;
+}
