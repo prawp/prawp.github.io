@@ -113,3 +113,10 @@ hr{
 .buildcontent{
     padding:1em;
 }
+.buildcontent hr{
+    margin-bottom: 1em;
+    margin-top: -1em;
+}
+.buildcontainer h3{
+    margin-bottom: px;
+}
