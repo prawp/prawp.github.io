@@ -101,3 +101,6 @@ hr{
     margin-bottom: 0px;
     margin-top: 0px;
 }
+#builds div{
+    text-align:center;
+}
