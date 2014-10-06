@@ -104,5 +104,9 @@ hr{
 .buildcontainer{
     text-align:center;
     border:1px solid black;
-    border-radius:10px;
+    margin-left:10px;
+    margin-right:10px;
+}
+.buildcontainer:hover{
+    cursor:pointer;
 }
