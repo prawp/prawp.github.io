@@ -110,3 +110,6 @@ hr{
 .buildcontainer:hover{
     cursor:pointer;
 }
+.buildcontent{
+    padding:1em;
+}
