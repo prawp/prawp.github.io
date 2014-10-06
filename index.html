@@ -79,7 +79,7 @@
             if( $(this).parent().children(".buildcontent").hasClass("open") ){
                 $(this).parent().children(".buildcontent").slideUp().toggleClass("open");
             } else {
-                $(".buildcontent").hide().removeClass("open");
+                $(".buildcontent").slideUp().removeClass("open");
                 $(this).parent().children(".buildcontent").slideDown().addClass("open");
             }
         });
