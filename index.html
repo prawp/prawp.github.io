@@ -66,12 +66,12 @@
         $("#home").show();
         //smite builds
         $(".buildcontent").hide();
-        $(".buildcontainer").click(function(){
-            if( $(this).children(".buildcontent").hasClass("open") ){
-                $(this).children(".buildcontent").slideUp().toggleClass("open");
+        $(".buildname").click(function(){
+            if( $(this).parent().children(".buildcontent").hasClass("open") ){
+                $(this).parent().children(".buildcontent").slideUp().toggleClass("open");
             } else {
                 $(".buildcontent").hide().removeClass("open");
-                $(this).children(".buildcontent").slideDown().addClass("open");
+                $(this).parent().children(".buildcontent").slideDown().addClass("open");
             }
         });
         //navbar
