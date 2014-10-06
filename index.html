@@ -30,6 +30,17 @@
             <h3 align='center' id='chosengod'>God Name</h3>
             <button id='randomizegod' class="pure-button">Randomize God</button>
         </div>
+        <div id="builds" class="page">
+            <h2>prawp's Smite Builds</h2>
+            <div>
+                <div class="buildname">
+                    Kali
+                </div>
+                <div class="buildcontent">
+                    Warrior Tabi - Qin Sais - Asi - Rage - Deathbringer - Executioner/Titan's Bane
+                </div>
+            </div>
+        </div>
         <div id="changelog" class="page">
             <h2>Changelog</h2>
             <hr>
@@ -51,6 +62,8 @@
         $("#navbar").hide();
         $(".page").hide();
         $("#home").show();
+        //smite builds
+        $(".buildcontent").hide();
         //navbar
         $(".link").click(function(){
             $("#navbar").slideUp().removeClass("out");
