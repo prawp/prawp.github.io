@@ -18,7 +18,7 @@
     <p id="navbar" align='center'>
         <span class="link" id="homel">Home</span><br>
         <span class="link" id="srgl">Smite Random God</span><br>
-        <span class="link" id="buildsl">prawp's Build</span><br>
+        <span class="link" id="buildsl">prawp's Smite builds</span><br>
         <span class="link" id="changelogl">Changelog</span>
     </p>
     <div id="main">
@@ -37,6 +37,7 @@
                 <div class="buildname">
                     <h3>Kali</h3>
                 </div>
+                <hr>
                 <div class="buildcontent">
                     <p>Warrior Tabi - Qin Sais - Asi - Rage - Deathbringer - Executioner/Titan's Bane</p>
                 </div>
@@ -66,7 +67,7 @@
         //smite builds
         $(".buildcontent").hide();
         $(".buildcontainer").click(function(){
-            $(".buildcontent").slideUp(1000);
+            $(".buildcontent").slideUp();
             $(this).children(".buildcontent").slideDown();
         });
         //navbar
