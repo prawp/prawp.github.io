@@ -101,8 +101,8 @@ hr{
     margin-bottom: 0px;
     margin-top: 0px;
 }
-#builds div{
+.buildcontainer{
     text-align:center;
-    border:2px solid black;
+    border:1px solid black;
     border-radius:10px;
 }
