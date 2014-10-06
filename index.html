@@ -33,7 +33,7 @@
         </div>
         <div id="builds" class="page">
             <h2>prawp's Smite Builds</h2>
-            <div>
+            <div class="buildcontainer">
                 <div class="buildname">
                     <h3>Kali</h3>
                 </div>
@@ -65,6 +65,10 @@
         $("#home").show();
         //smite builds
         $(".buildcontent").hide();
+        $(".buildcontainer").click(function(){
+            $(".buildcontent").slideUp(1000);
+            $(this).children(".buildcontent").slideDown();
+        });
         //navbar
         $(".link").click(function(){
             $("#navbar").slideUp().removeClass("out");
