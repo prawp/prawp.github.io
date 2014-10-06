@@ -67,8 +67,12 @@
         //smite builds
         $(".buildcontent").hide();
         $(".buildcontainer").click(function(){
-            $(".buildcontent").hide();
-            $(this).children(".buildcontent").slideDown();
+            if( $(this).children(".buildcontent").hasClass("open") ){
+                $(this).children(".buildcontent").slideUp().toggleClass("open");
+            } else {
+                $(".buildcontent").hide().removeClass("open");
+                $(this).children(".buildcontent").slideDown().addClass("open");
+            }
         });
         //navbar
         $(".link").click(function(){
