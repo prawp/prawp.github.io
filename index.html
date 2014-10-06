@@ -18,6 +18,7 @@
     <p id="navbar" align='center'>
         <span class="link" id="homel">Home</span><br>
         <span class="link" id="srgl">Smite Random God</span><br>
+        <span class="link" id="buildsl">prawp's Build</span>
         <span class="link" id="changelogl">Changelog</span>
     </p>
     <div id="main">
@@ -80,6 +81,10 @@
                 } else if(link == "changelogl"){
                     $(".page").slideUp(1000);
                     $("#changelog").slideDown();
+                    currentpage = link;
+                } else if(link == "buildsl"){
+                    $(".page").slideUp(1000);
+                    $("#builds").slideDown();
                     currentpage = link;
                 }
             }
