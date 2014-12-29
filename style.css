@@ -1,0 +1,58 @@
+@font-face{
+    font-family: Ubuntu;
+    src: url(Ubuntu-L.ttf);
+}
+body{
+    font-family: Ubuntu;
+    background: url("bg1.png");
+    color: rgb(171, 171, 171);
+}
+#title{
+    text-align: center;
+}
+li{
+    padding: 5px;
+    transition: 0.25s all;
+}
+#video{
+    position: relative;
+    margin-left: 0;
+    width: 75%;
+    height: 90%;
+    display: inline-block;
+    border: 1px solid black;
+}
+iframe{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+#playlist{
+    position: relative;
+    margin-right: 0;
+    width: 24%;
+    height: 90%;
+    display: inline-block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+ul{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 30px;
+    list-style: none;
+}
+li:hover{
+    transform: scale(1.05,1.05);
+    cursor: pointer;
+}
+#playlist p{
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 1px;
+    
+}
