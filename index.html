@@ -1,14 +1,17 @@
 <head>
     <title>Music List</title>
     <script src="jquery-1.11.2.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="snowstorm-min.js"></script>
 </head>
 
 <body>
     <div id="title">
         <h2><u>Music List</u><br><font size="2">by Prop</font></h2>
     </div>
-    <div id="video">
+    <div id="player">
         <iframe width="1280" height="720" src="http://www.youtube.com/embed/ii4fM8Jo7P0?autoplay=true" frameborder="0" allowfullscreen></iframe>
     </div>
     <div id="playlist">
@@ -41,6 +44,14 @@
         </ul>
     </div>
     
+    <div id="pullup">
+        <div id="pulltitle"><p>&#9776;</p></div>
+        <div id="pulled">
+            <p><center>Menu</center></p>
+            <button class="btn btn-default" id="newsong">Random Song</button>
+        </div>
+    </div>
+    
     <script>
         function jgood(){
             //changesong using only the small part of the youtube url
@@ -62,8 +73,25 @@
             var songchosen = songsid[Math.floor(Math.random()*songsid.length)]; //choose random song from array
             var chosensonge = $("#" + songchosen).attr("songe"); //get the id from songchosen variable and get embed url
             changesong(chosensonge);
-
-
+            
+            $("#pulled").hide();
+            
+            $("#pulltitle").click(function(){
+                $("#pulled").slideToggle();
+            });
+            $("#pulled").click(function(){
+                $("#pulled").slideToggle();
+            });
+            
+            $("#newsong").click(function(){
+                var songsid = []; //initiate the array of songids
+                $("li").each(function(){
+                    songsid.push($(this).attr("id")); //for each LI, add the id of it to array: songid
+                })
+                var songchosen = songsid[Math.floor(Math.random()*songsid.length)]; //choose random song from array
+                var chosensonge = $("#" + songchosen).attr("songe"); //get the id from songchosen variable and get embed url
+                changesong(chosensonge);
+            });
         }
 
         $(document).ready(jgood);
