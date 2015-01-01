@@ -2,6 +2,9 @@
     font-family: Ubuntu;
     src: url(Ubuntu-L.ttf);
 }
+h2{
+    margin-top: 5px;
+}
 body{
     font-family: Ubuntu;
     background: url("bg1.png");
@@ -34,6 +37,7 @@ iframe{
     height: 90%;
     display: inline-block;
     overflow-x: hidden;
+    float: right;
 }
 #playlist ul{
     overflow-x: hidden;
@@ -46,6 +50,7 @@ ul{
     bottom: 0;
     top: 30px;
     list-style: none;
+    padding-left: 10px;
 }
 li:hover{
     transform: scale(1.05,1.05);
@@ -86,4 +91,11 @@ li:hover{
 #pulltitle{
     text-align: right;
     trasition: 0.25s all;
+}
+#pulled button{
+    margin: 5px;
+}
+hr{
+    margin-bottom: 5px;
+    margin-top: 5px;
 }

@@ -21,33 +21,44 @@
         <ul>
             <li id="fsot" songe="NJ75mM1Re1M">[BREAKS] Fox Stevenson - Out There</li>
             <li id="nsst" songe="LKALcthKSwA">[BREAKS] Noisestorm - Sentinel</li>
+            <hr>
             <li id="amrain" songe="0Gf5bXR-Ucg">[DRUM AND BASS] Astronaut - Rain (MitiS Remix)</li>
             <li id="rbwelove" songe="UZGyMuHRx58">[DRUM AND BASS] Rameses B - We Love</li>
             <li id="dreamcatcher" songe="6b4gbkmgTmU">[DRUM AND BASS] Rameses B - Dream Catcher (feat. Charlotte Haining)</li>
             <li id="everythingsdifferent" songe="erTfXrHnpt0">[DRUM AND BASS] Bustre - Everything's Different</li>
             <li id="homebound" songe="rqbMrRDOu34">[DRUM AND BASS] Feint - Homebound</li>
             <li id="timebomb" songe="ihDkZC5PmiA">[DRUM AND BASS] Feint & Boyinaband feat. Veela - Time Bomb</li>
+            <hr>
             <li id="tmyfriend" songe="M0CfCdQ2zPU">[DRUMSTEP] Tristam - My Friend</li>
+            <hr>
             <li id="aquantumvirtualriot" songe="wtc9KcMbsio">[DUBSTEP] Astronaut - Quantum (Virtual Riot Remix)</li>
+            <hr>
             <li id="phos" songe="gMt3civOT7g">[EDM] Feint - Phosphor</li>
+            <hr>
             <li id="sstepup" songe="euoi8VEqTU0">[ELECTRO] Stonebank - Step Up</li>
             <li id="throne" songe="xGLizMZmA5c">[ELECTRO] F.O.O.L - Throne</li>
             <li id="errorcode" songe="mN0TvP2ZgIg">[ELECTRO] Case & Point - Error Code</li>
             <li id="house" songe="sEXZdvHptWg">[ELECTRO] OVERWERK - House (feat. Nick Nikon)</li>
             <li id="itvara" songe="Q1Y_AZ8fJD0">[ELECTRO] Fractal - Itvara</li>
             <li id="takingover" songe="WXSYsjMNMJc">[ELECTRO] Favright - Taking Over (feat. Cassandra Kay)</li>
+            <hr>
             <li id="gbclockwork" songe="PKBWYPk2XK4">[FUTURE BASS] Grant Bowtie - Clockwork</li>
             <li id="gbreach" songe="77i35GEgc6Y">[FUTURE BASS] Grant Bowtie - Reach</li>
             <li id="orbit" songe="dpciZ0D-Hhc">[FUTURE BASS] WRLD - Orbit (feat. Richard Caddock)</li>
             <li id="unme" songe="JhIEsQ15sSI">[FUTURE BASS] Laszlo x WRLD - You & Me</li>
+            <hr>
             <li id="irgopenhour" songe="ii4fM8Jo7P0">[GLITCH HOP] Insan3Lik3 & Rob Gasser - Open Hour</li>
             <li id="rbfullforce" songe="bGHJZxacDCk">[GLITCH HOP] Rameses B - Full Force</li>
+            <hr>
             <li id="puscribble" songe="VzZK_lt-hXI">[HOUSE] Puppet - Scribble (feat. The Eden Project)</li>
             <li id="handsoftime" songe="JnNJGncFpSs">[HOUSE] Hellberg & Rich Edwards - Hands of Time (feat. Jonny Rose)</li>
             <li id="coloredglass" songe="ebw-_peGnZ4">[HOUSE] Draper - Coloured Glass</li>
             <li id="reasons" songe="DYzxMAyrEEM">[HOUSE] Project 46 - Reasons (feat. Andrew Allen)</li>
+            <hr>
             <li id="fssl" songe="QS-YoSwSiYc">[POP/ROCK] Fox Stevenson - Simple Life</li>
+            <hr>
             <li id="aucrossroads" songe="cUy78QHeuvs">[TRANCE] Au5 - Crossroad (feat. Danyka Nadeau)</li>
+            <hr>
             <li id="pnhereitcomesremix" songe="kW9Ignb78Vw">[TRAP] Pegboard Nerds - Here It Comes (Snavs & Toby Green Remix)</li>
             <li id="breakthem" songe="nnAy1906EHg">[TRAP] Aero Chord - Break Them (feat. Anne Yvette)</li>
         </ul>
@@ -57,7 +68,9 @@
         <div id="pulltitle"><p>&#9776;</p></div>
         <div id="pulled">
             <p><center>Menu</center></p>
-            <button class="btn btn-default" id="newsong">Random Song</button>
+            <button class="btn btn-default" id="newsong">Random Song</button><br>
+            <button class="btn btn-default" id="hidevid">Show/Hide Video</button><br>
+            <button class="btn btn-default" id="togglehr">Show/Hide Separator</button>
         </div>
     </div>
     
@@ -83,15 +96,6 @@
             var chosensonge = $("#" + songchosen).attr("songe"); //get the id from songchosen variable and get embed url
             changesong(chosensonge);
             
-            $("#pulled").hide();
-            
-            $("#pulltitle").click(function(){
-                $("#pulled").slideToggle();
-            });
-            $("#pulled").click(function(){
-                $("#pulled").slideToggle();
-            });
-            
             $("#newsong").click(function(){
                 var songsid = []; //initiate the array of songids
                 $("li").each(function(){
@@ -101,6 +105,43 @@
                 var chosensonge = $("#" + songchosen).attr("songe"); //get the id from songchosen variable and get embed url
                 changesong(chosensonge);
             });
+            
+            //toggle hide video
+            $("#hidevid").click(function(){
+                if($("#player").hasClass("good")){
+                    $("#playlist").animate({
+                        width: "24%"
+                    },1000,function(){
+                        $("#playlist").css("text-align","left");
+                        $("#player").css("display","inline-block").animate({
+                            width: "75%"
+                        },1000).removeClass("good");
+                        });
+                } else {
+                    $("#player").animate({
+                        width: "0%",
+                    }, 1000, function(){
+                        $("#player").css("display","none").addClass("good");
+                        $("#playlist").css("text-align","center");
+                        $("#playlist").animate({
+                            width: "100%"
+                        },1000);
+                    });
+                    
+                } 
+            });
+            
+            //menu pullup
+            $("#pulled").hide();
+            $("#pullup").click(function(){
+                $("#pulled").slideToggle();
+            });
+            
+            //togglehr
+            $("#togglehr").click(function(){
+                $("hr").slideToggle();
+            });
+            
         }
 
         $(document).ready(jgood);
