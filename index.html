@@ -2,6 +2,7 @@
     <title>Music List</title>
     <script src="jquery-1.11.2.min.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="swfobject.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="snowstorm-min.js"></script>
@@ -11,8 +12,9 @@
     <div id="title">
         <h2><u>Music List</u><br><font size="2">by Prop</font></h2>
     </div>
-    <div id="player">
-        <iframe width="1280" height="720" src="http://www.youtube.com/embed/ii4fM8Jo7P0?autoplay=true" frameborder="0" allowfullscreen></iframe>
+    <div id="player2">
+        <div id="player">
+        </div>
     </div>
     <div id="playlist">
         <p>
@@ -69,8 +71,8 @@
         <div id="pulled">
             <p><center>Menu</center></p>
             <button class="btn btn-default" id="newsong">Random Song</button><br>
-            <button class="btn btn-default" id="hidevid">Show/Hide Video</button><br>
-            <button class="btn btn-default" id="togglehr">Show/Hide Separator</button>
+            <button class="btn btn-default" id="togglehr">Show/Hide Separator</button><br>
+            <button class="btn btn-default" id="mute" onclick="javascript:ytplayer.mute();">Mute</button>
         </div>
     </div>
     
@@ -78,7 +80,7 @@
         function jgood(){
             //changesong using only the small part of the youtube url
             function changesong(embed){
-                $("iframe").attr("src", "http://www.youtube.com/embed/" + embed + "?autoplay=true")
+                $("#myytplayer").attr("data", "http://www.youtube.com/v/" + embed + "?enablejsapi=1&playerapiid=ytplayer&version=3&autoplay=true")
             }
 
             //song changer with playlist buttons
@@ -106,31 +108,6 @@
                 changesong(chosensonge);
             });
             
-            //toggle hide video
-            $("#hidevid").click(function(){
-                if($("#player").hasClass("good")){
-                    $("#playlist").animate({
-                        width: "24%"
-                    },1000,function(){
-                        $("#playlist").css("text-align","left");
-                        $("#player").css("display","inline-block").animate({
-                            width: "75%"
-                        },1000).removeClass("good");
-                        });
-                } else {
-                    $("#player").animate({
-                        width: "0%",
-                    }, 1000, function(){
-                        $("#player").css("display","none").addClass("good");
-                        $("#playlist").css("text-align","center");
-                        $("#playlist").animate({
-                            width: "100%"
-                        },1000);
-                    });
-                    
-                } 
-            });
-            
             //menu pullup
             $("#pulled").hide();
             $("#pullup").click(function(){
@@ -141,6 +118,24 @@
             $("#togglehr").click(function(){
                 $("hr").slideToggle();
             });
+            
+            function onYouTubePlayerReady(playerid){
+                ytplayer = document.getElementById("myytplayer");
+            }
+            
+            var params = { allowScriptAccess: "always" };
+            var atts = { id: "myytplayer" };
+            swfobject.embedSWF("http://www.youtube.com/v/" + chosensonge + "?enablejsapi=1&playerapiid=ytplayer&version=3&autoplay=true",
+                       "player", "425", "356", "8", null, null, params, atts);
+            
+            
+            
+            function ytmute(){
+                if (ytplayer) {
+                    ytplayer.mute();
+                }
+            }
+            
             
         }
 
